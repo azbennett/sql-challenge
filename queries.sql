@@ -4,7 +4,7 @@
 
 --Data Analysis
 --List the employee number, last name, first name, sex, and salary of each employee.
---300024
+--300024 total results ( I tried using LEFT JOIN and JOIN - both had the same results )
 SELECT e.emp_no, e.last_name, e.first_name, e.sex, s.salary
 FROM Employees AS e
 LEFT JOIN Salaries AS s ON e.emp_no = s.emp_no;
@@ -16,7 +16,7 @@ FROM Employees
 WHERE EXTRACT(YEAR FROM hire_date) = 1986;
 
 --List the manager of each department along with their department number, department name, employee number, last name, and first name.
---24
+--24 total results  ( I tried using LEFT JOIN and JOIN - both had the same results )
 SELECT dm.dept_no, d.dept_name, dm.emp_no, e.last_name, e.first_name
 FROM Department_mgr AS dm
 LEFT JOIN Departments AS d ON dm.dept_no = d.dept_no
@@ -24,7 +24,7 @@ LEFT JOIN Employees AS e ON dm.emp_no = e.emp_no;
 
 
 --List the department number for each employee along with that employee’s employee number, last name, first name, and department name.
---331603
+--331603 total results  ( I tried using LEFT JOIN and JOIN - both had the same results )
 SELECT edi.dept_no, e.emp_no, e.last_name, e.first_name, d.dept_name
 FROM Employee_Dept_ID AS edi
 LEFT JOIN Employees AS e ON edi.emp_no = e.emp_no
@@ -38,7 +38,7 @@ WHERE first_name = 'Hercules' AND last_name LIKE 'B%';
 
 
 --List each employee in the Sales department, including their employee number, last name, and first name.
---52245
+--52245 total results ( I tried using LEFT JOIN and JOIN - both had the same results )
 SELECT e.emp_no, e.last_name, e.first_name, d.dept_name
 FROM Employee_Dept_ID AS edi
 LEFT JOIN Employees AS e ON edi.emp_no = e.emp_no
@@ -47,7 +47,7 @@ WHERE d.dept_name = 'Sales';
 
 
 --List each employee in the Sales and Development departments, including their employee number, last name, first name, and department name.
---137952
+--137952 total results
 SELECT e.emp_no, e.last_name, e.first_name, d.dept_name
 FROM Employee_Dept_ID AS edi
 LEFT JOIN Employees AS e ON edi.emp_no = e.emp_no
